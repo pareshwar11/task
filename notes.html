@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw Money</title>
+</head>
+<body>
+    <script>
+            let amount = prompt("Enter Withdraw amount AND Check the answer in console");
+            let n=parseInt(amount)
+            console.log("Your Withdraw amount "+amount);
+            countCurrency(n);
+            // logic
+            function countCurrency(amount)
+            {
+                let notes = [ 2000, 500, 200, 100, 50, 20, 10, 5, 1 ];
+                let noteCounter = Array(9).fill(0);
+                for (let i = 0; i < 9; i++) {
+                    if (amount >= notes[i]) {
+                        noteCounter[i] = Math.floor(amount / notes[i]);
+                        amount = amount % notes[i];
+                    }
+                }
+                 // Minimum reuire notes
+                for (let i = 0; i < 9; i++) {
+                    if (noteCounter[i] != 0) {
+                        console.log("Minimum: "+notes[i]+" note  = " + noteCounter[i]);
+                    }
+                }
+            }
+            //Maximum 50 notes
+            let fiftynotes=amount/50;
+            console.log("Maximum: 50 note = "+fiftynotes);
+        </script>
+</body>
+</html>
